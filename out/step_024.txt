@@ -1,0 +1,25 @@
+--- Step 24 ---
+
+Tempo: 24 | Segurando: Nada
+Pontos: 0 / 65 | Estrelas: ☆☆☆
++------------------------------------------------------------+
+| A  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
+| #  O  C  .  C  C  #  C  C  C  C  #  C  C  .  C  V  O  # |
+| #  k  .  .  .  .  #  .  .  .  .  #  .  .  .  .  k  .  # |
+| #  .  .  .  .  .  #  .  .  .  .  #  .  .  .  .  .  .  # |
+| #  C  C  .  .  .  #  .  .  .  .  #  .  .  .  C  C  C  # |
+| #  #  .  .  .  .  #  #  #  #  #  #  .  .  .  .  #  #  # |
+| #  #  .  .  .  .  C  .  .  .  .  C  .  .  .  .  #  #  # |
+| #  #  .  .  .  .  C  .  .  .  .  C  .  .  .  .  #  #  # |
+| #  #  C  C  .  .  C  C  P  P  C  C  .  .  C  C  G  D  # |
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
++------------------------------------------------------------+
+Pedidos ativos:
+  - Onion Soup (3x Onion)
+  - Tomato Soup (3x Tomato)
+  - Mixed Soup (2x Onion, 1x Tomato)
+  Estação em (1, 2): Panela(EMPTY, [], prog=0) | Progresso: 0
+  Estação em (16, 2): Panela(EMPTY, [], prog=0) | Progresso: 0
+
+Legenda: A=Agente, K=Panela(vazia), f=Panela(enchendo), c=Panela(cozinhando), R=Panela(pronta)
+         O=Fonte Cebola, V=Fonte Tomate, T/B=Tábua, S=Fogão, W=Pia, D=Entrega, G=Lixo

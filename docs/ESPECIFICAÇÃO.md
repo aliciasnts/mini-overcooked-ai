@@ -130,16 +130,15 @@ Verdadeiro quando `len(active_orders) == 0`.
 
 # Algoritmos de Busca e Heurística
 
-## A* com Limites (`astar_search_with_limit`)
+## Algoritmos de Busca Utilizados
 
-Utilizamos nossa própria implementação de A*, equivalente ao `astar_search` do aima3, mas com dois mecanismos de proteção:
+Os algoritmos de busca clássicos vistos no AIMA foram adaptados com limites de segurança em `agents/algorithms/search.py`:
 
-- **`max_expansions`** (padrão: 50 000 / 100 000): limite de nós expandidos.
-- **`max_time_s`** (padrão: 5 s): limite de tempo real.
+- **A\* padrão do AIMA (`astar_search_with_limit`)**: Principal algoritmo utilizado. Para evitar laços infinitos e `TimeoutError` em níveis abertos com grande espaço de ramificação, foram adicionados limites de taxa de expansões e tempo.
+- **Busca de Custo Uniforme (UCS)**: Implementada via **A\* parametrizado com heurística nula (`h(n) = 0`)**. Quando o agente precisa buscar um caminho para um sub-objetivo rápido (onde heurísticas globais são insuficientes ou causam mínimos locais), ele dispara a busca garantindo ser ótima, pois A* com admissibilidade trivial no limite se torna UCS.
+- **Não utilizados (mas mapeados na codebase)**: `weighted_astar_search` e `greedy_best_first_search`. Destinados a fins comparativos; não foram usados na branch principal pois o BFS Guloso tende a colidir com as bancadas devido aos obstáculos do nível e Weighted A* sacrifica a optimalidade do caminho, o que seria penalizado pela contagem restrita de `max_steps`.
 
-**Justificativa**: Com receitas multi-ingrediente, o espaço de estados cresce exponencialmente (cada estado da panela, posição do agente e ingredientes combinados). A implementação padrão do aima3 não possui proteção contra timeout, o que causaria travamentos ao buscar sub-objetivos com muitos passos.
-
-O agente usa **decomposição por sub-objetivos**: em vez de buscar o plano completo de uma vez, identifica o próximo sub-objetivo alcançável (ex: "colocar próxima cebola na panela") e busca apenas esse sub-objetivo. Isso mantém o espaço de busca pequeno o suficiente para o A* sem limites, mas os limites servem como **salvaguarda** caso o sub-objetivo seja mal formulado.
+O programa do agente utiliza uma estratégia de **Decomposição por Sub-Objetivos**. Em vez de tentar planejar uma receita completa (espaço de busca intratável), o agente avalia as percepções e define lógicas geradoras de `funções goal_test` simples. Esses testes locais são despachados para o Uniform Cost Search (`astar_search(problem, lambda n: 0)`), mantendo o processamento restrito e viável. Apenas quando não há objetivo intermediário dedutível, ele passa à formulação macro heurística (`astar_search_with_limit(problem, self.heuristic)`).
 
 ## Heurística `h(n)`
 
@@ -163,3 +162,13 @@ A heurística é admissível e estima o custo mínimo restante usando **distânc
 | 1-4 | Hambúrguer | Simples, com Alface, com Tomate, Completo |
 | 1-5 | Sopa | Sopa de Cebola e Sopa de Tomate (cozinha dividida) |
 | 1-6 | Hambúrguer | Simples, com Tomate, Completo (cozinha maior) |
+
+---
+
+# Arquitetura Ambiente - Agente - Programa de Agente
+
+O projeto mapeia perfeitamente a tríade conceitual proposta pelo livro AIMA:
+
+1. **Ambiente (`KitchenEnvironment`)**: Encapsula o motor físico da simulação, fornecendo o layout, posição dinâmica de objetos, estados de bancadas e propagação de fogo (`env/kitchen_env.py`). Fornece a matriz de *percepts* e executa o método `render()` a cada tick.
+2. **Agente (`KitchenAgent`)**: Entidade que absorve os *percepts* no método `__call__(percept)` e mantém a lista de `plan`.
+3. **Programa de Agente (`__call__`)**: Define uma função mapeadora. Na ausência de plano em cache, instancia explicitamente subclasses do `Problem` a partir do `percept`, dispara uma das funções de busca clássicas instanciando as estratégias via árvore e seleciona iterativamente os nós da fila prioritária para derivar `action = plan.pop(0)`. Este desenho comprova a adoção funcional dos preceitos de Russel e Norvig.

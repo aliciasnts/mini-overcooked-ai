@@ -2,6 +2,10 @@
 
 Simulação do jogo Overcooked usando um agente de busca heurística (A*). O agente planeja e executa ações em uma cozinha 2D para completar pedidos de pratos — incluindo **sopas com múltiplos ingredientes** cozidos em panela.
 
+## Membros da Equipe
+
+
+
 ## Estrutura
 
 ```
@@ -102,4 +106,3 @@ python main.py layouts/overcooked2.json --auto
 ## Documentação
 
 - [`docs/ESPECIFICAÇÃO.md`](docs/ESPECIFICAÇÃO.md) — especificação formal do problema (AIMA)
-- [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) — visão geral dos módulos e fluxo de execução

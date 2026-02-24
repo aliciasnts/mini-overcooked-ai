@@ -9,6 +9,9 @@ class KitchenEnvironment(Environment):
         self.height = len(initial_state.layout)
         self.width = len(initial_state.layout[0])
         self.history = []  # Lista de tuplas (state, action)
+        
+        # Sistema de pontuação máxima baseada nos pedidos iniciais
+        self.max_score = sum(o.score for o in initial_state.active_orders)
 
     def thing_classes(self):
         return []
@@ -76,8 +79,21 @@ class KitchenEnvironment(Environment):
         else:
             holding_str = f"{held.name}({held.state})"
 
+        # Cálculo de pontos e estrelas
+        current_score = sum(o.score for o in self.state.delivered_orders)
+        stars = 0
+        if self.max_score > 0:
+            if current_score >= self.max_score:
+                stars = 3
+            elif current_score >= self.max_score * 0.75:
+                stars = 2
+            elif current_score >= self.max_score * 0.5:
+                stars = 1
+        stars_str = "⭐" * stars + "☆" * (3 - stars)
+
         lines = []
         lines.append(f"\nTempo: {self.state.time} | Segurando: {holding_str}")
+        lines.append(f"Pontos: {current_score} / {self.max_score} | Estrelas: {stars_str}")
         lines.append("+" + "---" * self.width + "+")
         for row in render_grid:
             lines.append("| " + "  ".join(row) + " |")
@@ -85,11 +101,15 @@ class KitchenEnvironment(Environment):
 
         # Pedidos ativos
         if self.state.active_orders:
+            from utils.recipe_utils import pot_required_ingredients
+            from collections import Counter
             order_strs = []
             for o in self.state.active_orders:
-                name = o.recipe.name if o.recipe else "/".join(o.ingredients)
-                order_strs.append(name)
-            lines.append("Pedidos ativos: " + ", ".join(order_strs))
+                name = o.recipe.name if o.recipe else o.ingredients[0] + "..."
+                ing_counts = Counter(pot_required_ingredients(o))
+                ing_str = ", ".join(f"{v}x {k}" for k, v in ing_counts.items())
+                order_strs.append(f"{name} ({ing_str})")
+            lines.append("Pedidos ativos:\n  - " + "\n  - ".join(order_strs))
 
         # Detalhes das estações
         for pos, s_state in self.state.stations_state:

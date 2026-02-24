@@ -9,48 +9,7 @@ from utils.recipe_utils import pot_required_ingredients
 from models.entities import Ingredient, Plate, Extinguisher, Pot
 
 
-def astar_search_with_limit(problem, h, max_expansions=50000, max_time_s=5.0):
-    """A* com limites de expansão e tempo.
-
-    Justificativa: o espaço de estados cresce muito com receitas multi-ingrediente.
-    A versão padrão do aima3 não tem proteção contra timeout, o que causaria
-    travamentos durante a busca de sub-objetivos complexos como encher uma panela.
-    Esta implementação é idêntica ao A* clássico, porém com salvaguardas.
-    """
-    start_t = time.monotonic()
-    node = Node(problem.initial)
-    if problem.goal_test(node.state):
-        return node
-
-    frontier = []
-    push_count = 0
-    h_val = h(node)
-    heapq.heappush(frontier, (node.path_cost + h_val, h_val, push_count, node))
-
-    explored = {node.state: node.path_cost}
-    expansions = 0
-
-    while frontier:
-        if time.monotonic() - start_t > max_time_s:
-            return None
-
-        f, hv, pc, node = heapq.heappop(frontier)
-
-        if problem.goal_test(node.state):
-            return node
-
-        expansions += 1
-        if expansions > max_expansions:
-            return None
-
-        for child in node.expand(problem):
-            if child.state not in explored or child.path_cost < explored[child.state]:
-                explored[child.state] = child.path_cost
-                push_count += 1
-                ch_val = h(child)
-                heapq.heappush(frontier, (child.path_cost + ch_val, ch_val, push_count, child))
-
-    return None
+from agents.algorithms.search import astar_search_with_limit
 
 
 class KitchenAgent(Agent):
@@ -123,7 +82,7 @@ class KitchenAgent(Agent):
                             if (isinstance(state.held_item, Ingredient)
                                     and state.held_item.state == 'CHOPPED'
                                     and state.held_item.name == first_needed):
-                                return lambda s, p=captured_pos, tc=target_count: any(
+                                return lambda s, p=pos, tc=(len(pot.ingredients) + 1): any(
                                     st_pos == p and isinstance(st.content, Pot)
                                     and len(st.content.ingredients) >= tc
                                     for st_pos, st in s.stations_state

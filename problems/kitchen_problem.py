@@ -138,7 +138,7 @@ class KitchenProblem(Problem):
                 if tile == 'D' and isinstance(held, Plate) and held.state == 'WITH_FOOD':
                     if state.active_orders:
                         order = state.active_orders[0]
-                        if _order_satisfied_by_plate(held, order):
+                        if order_satisfied_by_plate(held, order):
                             possible_actions.append(f"Deliver({sx}, {sy})")
 
                 # Pegar comida diretamente do fogão/tábua para o prato limpo
