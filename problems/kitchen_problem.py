@@ -97,6 +97,12 @@ class KitchenProblem(Problem):
                     possible_actions.append(f"PickUp(Onion, RAW, {sx}, {sy})")
                 elif tile == 'V':   # Fonte infinita de tomate
                     possible_actions.append(f"PickUp(Tomato, RAW, {sx}, {sy})")
+                elif tile == 'M':   # Fonte infinita de carne
+                    possible_actions.append(f"PickUp(Meat, RAW, {sx}, {sy})")
+                elif tile == 'B':   # Fonte infinita de pão
+                    possible_actions.append(f"PickUp(Bread, RAW, {sx}, {sy})")
+                elif tile == 'L':   # Fonte infinita de alface
+                    possible_actions.append(f"PickUp(Lettuce, RAW, {sx}, {sy})")
                 elif tile in ('S', 'T', 'B', 'W'):
                     if station_state and station_state.content:
                         content = station_state.content
