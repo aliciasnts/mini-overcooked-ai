@@ -1,22 +1,24 @@
---- Step 114 ---
+--- Passo 114 ---
 
-Tempo: 114 | Segurando: Onion(CHOPPED)
+Tempo: 114 | Segurando: Prato(CLEAN)
 Pontos: 0 / 65 | Estrelas: ☆☆☆
-+---------------------------------------------------------+
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-| #  .  C  C  f  C  k  C  .  .  .  C  C  C  E  G  .  C  # |
-| #  .  .  .  A  .  .  C  .  .  .  .  .  .  .  .  .  D  # |
-| #  W  .  .  .  .  .  P  .  .  .  P  .  .  .  .  .  D  # |
-| #  W  .  .  .  .  .  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  .  .  .  .  .  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  C  C  T  C  T  C  .  .  .  C  O  C  V  C  C  .  # |
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-+---------------------------------------------------------+
-Pedidos ativos:
-  - Onion Soup (3x Onion)
-  - Tomato Soup (3x Tomato)
-  - Mixed Soup (2x Onion, 1x Tomato)
-  Estação em (4, 1): Panela(FILLING, [Onion, Onion], prog=0) | Progresso: 0
++---------------------------------------------+
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
+| #  .  .  .  R  C  k  C  C  D  D  .  E  .  # |
+| #  .  C  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  C  A  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  G  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  C  T  C  T  C  C  O  V  O  .  .  .  # |
+| #  .  .  .  .  .  .  .  .  .  .  .  .  .  # |
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
++---------------------------------------------+
+Pedidos ativos (Fila de Prioridade):
+  - Onion Soup (3x Onion) | Tempo: 86s restantes
+  - Tomato Soup (3x Tomato) | Tempo: 116s restantes
+  - Mixed Soup (2x Onion, 1x Tomato) | Tempo: 146s restantes
+  Estação em (4, 1): Panela(READY, [Onion, Onion, Onion], prog=7) | Progresso: 7
   Estação em (6, 1): Panela(EMPTY, [], prog=0) | Progresso: 0
 
 Legenda: A=Agente, K=Panela(vazia), f=Panela(enchendo), c=Panela(cozinhando), R=Panela(pronta)

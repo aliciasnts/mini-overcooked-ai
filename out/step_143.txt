@@ -1,21 +1,22 @@
---- Step 143 ---
+--- Passo 143 ---
 
-Tempo: 143 | Segurando: Prato(WITH_FOOD, [Onion, Onion, Onion])
-Pontos: 0 / 65 | Estrelas: ☆☆☆
-+---------------------------------------------------------+
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-| #  .  C  C  k  C  k  C  .  .  .  C  C  C  E  G  .  C  # |
-| #  .  .  .  .  .  .  C  .  .  .  .  .  .  A  .  .  D  # |
-| #  W  .  .  .  .  .  C  .  .  .  P  .  .  .  .  .  D  # |
-| #  W  .  .  .  .  .  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  .  .  .  .  .  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  C  C  T  C  T  C  .  .  .  C  O  C  V  C  C  .  # |
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-+---------------------------------------------------------+
-Pedidos ativos:
-  - Onion Soup (3x Onion)
-  - Tomato Soup (3x Tomato)
-  - Mixed Soup (2x Onion, 1x Tomato)
+Tempo: 143 | Segurando: Nada
+Pontos: 20 / 65 | Estrelas: ☆☆☆
++---------------------------------------------+
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
+| #  .  .  .  k  P  k  C  C  D  D  .  E  .  # |
+| #  .  C  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  A  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  C  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  G  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  C  T  C  T  C  C  O  V  O  .  .  .  # |
+| #  .  .  .  .  .  .  .  .  .  .  .  .  .  # |
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
++---------------------------------------------+
+Pedidos ativos (Fila de Prioridade):
+  - Tomato Soup (3x Tomato) | Tempo: 87s restantes
+  - Mixed Soup (2x Onion, 1x Tomato) | Tempo: 117s restantes
   Estação em (4, 1): Panela(EMPTY, [], prog=0) | Progresso: 0
   Estação em (6, 1): Panela(EMPTY, [], prog=0) | Progresso: 0
 

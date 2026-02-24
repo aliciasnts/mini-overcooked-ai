@@ -41,11 +41,16 @@ def run():
         action="store_true",
         help="Modo automático: executa sem interação, gera apenas out/render.txt",
     )
+    parser.add_argument(
+        "--algo", 
+        choices=["astar", "greedy", "weighted"], 
+        default="astar", 
+        help="Escolha o algoritmo (astar, greedy ou weighted)"
+    )
 
     args = parser.parse_args()
     layout_path = args.layout
     interactive = not args.auto
-
     # Diretório de saída dos renders
     out_dir = "out"
     os.makedirs(out_dir, exist_ok=True)
@@ -58,7 +63,7 @@ def run():
     # 2. Inicializa o ambiente, o agente com sua heurística e registra o agente
     env = KitchenEnvironment(initial_state)
     problem = KitchenProblem(initial_state)
-    agent = KitchenAgent(heuristic=problem.h)
+    agent = KitchenAgent(heuristic=problem.h, algorithm=args.algo)
     env.add_thing(agent)
 
     # 3. Renderiza e registra o estado inicial

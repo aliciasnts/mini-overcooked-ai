@@ -1,21 +1,24 @@
---- Step 332 ---
+--- Passo 332 ---
 
-Tempo: 332 | Segurando: Onion(CHOPPED)
+Tempo: 332 | Segurando: Nada
 Pontos: 40 / 65 | Estrelas: ⭐☆☆
-+---------------------------------------------------------+
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-| #  .  P  P  k  C  k  C  .  .  .  C  C  C  E  G  .  C  # |
-| #  .  .  .  .  .  A  C  .  .  .  .  .  .  .  .  .  D  # |
-| #  W  .  .  .  .  .  C  .  .  .  C  .  .  .  .  .  D  # |
-| #  W  .  .  .  .  .  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  .  .  .  .  .  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  C  C  T  C  T  C  .  .  .  C  O  C  V  C  C  .  # |
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-+---------------------------------------------------------+
-Pedidos ativos:
-  - Mixed Soup (2x Onion, 1x Tomato)
-  Estação em (4, 1): Panela(EMPTY, [], prog=0) | Progresso: 0
++---------------------------------------------+
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
+| #  .  .  .  f  P  k  P  C  D  D  .  E  .  # |
+| #  .  C  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  C  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  C  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  G  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  C  T  C  o  C  C  O  V  O  .  .  .  # |
+| #  .  .  .  .  A  .  .  .  .  .  .  .  .  # |
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
++---------------------------------------------+
+Pedidos ativos (Fila de Prioridade):
+  - Mixed Soup (2x Onion, 1x Tomato) | Tempo: 0s restantes
+  Estação em (4, 1): Panela(FILLING, [Onion], prog=0) | Progresso: 0
   Estação em (6, 1): Panela(EMPTY, [], prog=0) | Progresso: 0
+  Estação em (5, 7): Onion(CHOPPED) | Progresso: 0
 
 Legenda: A=Agente, K=Panela(vazia), f=Panela(enchendo), c=Panela(cozinhando), R=Panela(pronta)
          O=Fonte Cebola, V=Fonte Tomate, T/B=Tábua, S=Fogão, W=Pia, D=Entrega, G=Lixo

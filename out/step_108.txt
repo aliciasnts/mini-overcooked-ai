@@ -1,24 +1,25 @@
---- Step 108 ---
+--- Passo 108 ---
 
 Tempo: 108 | Segurando: Nada
 Pontos: 0 / 65 | Estrelas: ☆☆☆
-+---------------------------------------------------------+
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-| #  .  C  C  f  C  k  C  .  .  .  C  C  C  E  G  .  C  # |
-| #  .  .  .  .  .  .  C  .  .  .  .  .  .  .  .  .  D  # |
-| #  W  .  .  .  .  .  P  .  .  .  P  .  .  .  .  .  D  # |
-| #  W  .  .  .  .  .  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  .  .  .  .  A  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  C  C  T  C  o  C  .  .  .  C  O  C  V  C  C  .  # |
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-+---------------------------------------------------------+
-Pedidos ativos:
-  - Onion Soup (3x Onion)
-  - Tomato Soup (3x Tomato)
-  - Mixed Soup (2x Onion, 1x Tomato)
-  Estação em (4, 1): Panela(FILLING, [Onion, Onion], prog=0) | Progresso: 0
++---------------------------------------------+
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
+| #  .  .  .  c  C  k  C  C  D  D  .  E  .  # |
+| #  .  C  A  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  G  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  C  T  C  T  C  C  O  V  O  .  .  .  # |
+| #  .  .  .  .  .  .  .  .  .  .  .  .  .  # |
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
++---------------------------------------------+
+Pedidos ativos (Fila de Prioridade):
+  - Onion Soup (3x Onion) | Tempo: 92s restantes
+  - Tomato Soup (3x Tomato) | Tempo: 122s restantes
+  - Mixed Soup (2x Onion, 1x Tomato) | Tempo: 152s restantes
+  Estação em (4, 1): Panela(COOKING, [Onion, Onion, Onion], prog=2) | Progresso: 2
   Estação em (6, 1): Panela(EMPTY, [], prog=0) | Progresso: 0
-  Estação em (6, 6): Onion(CHOPPED) | Progresso: 0
 
 Legenda: A=Agente, K=Panela(vazia), f=Panela(enchendo), c=Panela(cozinhando), R=Panela(pronta)
          O=Fonte Cebola, V=Fonte Tomate, T/B=Tábua, S=Fogão, W=Pia, D=Entrega, G=Lixo

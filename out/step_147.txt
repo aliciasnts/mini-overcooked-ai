@@ -1,20 +1,22 @@
---- Step 147 ---
+--- Passo 147 ---
 
-Tempo: 147 | Segurando: Nada
+Tempo: 147 | Segurando: Tomato(RAW)
 Pontos: 20 / 65 | Estrelas: ☆☆☆
-+---------------------------------------------------------+
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-| #  .  P  C  k  C  k  C  .  .  .  C  C  C  E  G  .  C  # |
-| #  .  .  .  .  .  .  C  .  .  .  .  .  .  .  .  .  D  # |
-| #  W  .  .  .  .  .  C  .  .  .  P  .  .  .  .  A  D  # |
-| #  W  .  .  .  .  .  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  .  .  .  .  .  .  .  .  .  C  .  .  .  .  .  .  # |
-| #  .  C  C  T  C  T  C  .  .  .  C  O  C  V  C  C  .  # |
-| #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
-+---------------------------------------------------------+
-Pedidos ativos:
-  - Tomato Soup (3x Tomato)
-  - Mixed Soup (2x Onion, 1x Tomato)
++---------------------------------------------+
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
+| #  .  .  .  k  P  k  C  C  D  D  .  E  .  # |
+| #  .  C  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  P  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  C  .  .  .  .  C  .  .  .  .  .  .  # |
+| #  .  G  .  .  .  .  C  .  A  .  .  .  .  # |
+| #  .  C  T  C  T  C  C  O  V  O  .  .  .  # |
+| #  .  .  .  .  .  .  .  .  .  .  .  .  .  # |
+| #  #  #  #  #  #  #  #  #  #  #  #  #  #  # |
++---------------------------------------------+
+Pedidos ativos (Fila de Prioridade):
+  - Tomato Soup (3x Tomato) | Tempo: 83s restantes
+  - Mixed Soup (2x Onion, 1x Tomato) | Tempo: 113s restantes
   Estação em (4, 1): Panela(EMPTY, [], prog=0) | Progresso: 0
   Estação em (6, 1): Panela(EMPTY, [], prog=0) | Progresso: 0
 

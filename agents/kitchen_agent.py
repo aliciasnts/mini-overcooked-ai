@@ -1,3 +1,11 @@
+# tentando resolver um problema = não tem mais a Callable nas collections das versões 
+# mais recentes de python (que é preciso pro aima3) ent to colocando aqui manualmente
+
+import collections
+import collections.abc
+collections.Callable = collections.abc.Callable
+
+
 from aima3.agents import Agent
 from aima3.search import Node
 
@@ -6,13 +14,14 @@ from utils.recipe_utils import pot_required_ingredients
 from models.entities import Ingredient, Plate, Extinguisher, Pot
 
 
-from agents.algorithms.search import astar_search_with_limit
+from agents.algorithms.search import astar_search_with_limit, greedy_best_first_search, weighted_astar_search
 
 
 class KitchenAgent(Agent):
-    def __init__(self, heuristic):
+    def __init__(self, heuristic, algorithm="astar"):
         super().__init__(program=self)
         self.heuristic = heuristic
+        self.algorithm = algorithm
         self.plan = []
         self.debug_info = {}
 
@@ -184,14 +193,24 @@ class KitchenAgent(Agent):
         if not self.plan:
             subgoal_fn = self.get_subgoal_test(state)
 
+            # --- NOSSA LÓGICA DE ESCOLHA AQUI ---
+            def run_chosen_algorithm(prob, heur_func, max_exp):
+                if self.algorithm == "greedy":
+                    return greedy_best_first_search(prob, heur_func)
+                elif self.algorithm == "weighted":
+                    return weighted_astar_search(prob, heur_func)
+                else:
+                    return astar_search_with_limit(prob, heur_func, max_expansions=max_exp)
+
             if subgoal_fn:
-                print(f"[Agente] Buscando plano para sub-objetivo (passo={state.time})...")
+                print(f"[Agente] Buscando plano para sub-objetivo usando {self.algorithm} (passo={state.time})...")
                 problem = KitchenProblem(state, goal_test_fn=subgoal_fn)
-                solution_node = astar_search_with_limit(problem, lambda n: 0, max_expansions=100000)
+                solution_node = run_chosen_algorithm(problem, lambda n: 0, 100000)
             else:
-                print(f"[Agente] Buscando plano para objetivo completo (passo={state.time})...")
+                print(f"[Agente] Buscando plano para objetivo completo usando {self.algorithm} (passo={state.time})...")
                 problem = KitchenProblem(state)
-                solution_node = astar_search_with_limit(problem, self.heuristic, max_expansions=200000)
+                solution_node = run_chosen_algorithm(problem, self.heuristic, 200000)
+            # ------------------------------------
 
             if solution_node:
                 self.plan = solution_node.solution()
